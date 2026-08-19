@@ -1,0 +1,10 @@
+# Environment: add_bonding
+# Install: micromamba create -n add_bonding --file requirements_bonding.txt
+# Or: pip install -r requirements_bonding.txt
+
+numpy<2
+pandas
+scikit-learn
+matplotlib
+pysr
+joblib

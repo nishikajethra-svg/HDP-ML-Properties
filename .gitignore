@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+
+# Model checkpoints (large files — download from Zenodo)
+*.pkl
+modnet_featurized.pkl
+modnet_selected*.pkl
+results/
+
+# PySR temp files
+pysr_*/
+*.jl
+hall_of_fame*.csv
+
+# Logs
+*.log
+nohup.out
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

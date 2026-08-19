@@ -1,0 +1,13 @@
+# Environment: start_modnet
+# Install: micromamba create -n start_modnet --file requirements_modnet.txt
+# Note: TensorFlow 2.14 requires Python 3.10 and numpy<2
+
+python=3.10
+numpy<2
+pandas
+scikit-learn
+matplotlib
+tensorflow==2.14.0
+modnet==0.4.5
+pymatgen
+matminer
