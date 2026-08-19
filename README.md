@@ -52,13 +52,22 @@ HDP-ML-Properties/
 
 ## Dataset
 
-The primary HDP dataset must be downloaded separately:
+The primary HDP dataset must be downloaded separately from NOMAD before running any scripts.
 
-> Naik et al. (2024) — *[citation]* — [source repository URL]
+**Preprint:** L. Walterbos, A. McEwan, R. Shinde, J. George, L. Leppert,
+"Spin-Polarized Electronic Structure and Chemical Bonding Data for 2,500+ Halide Double Perovskites,"
+*under review* (2026). [arXiv:2606.11928](https://arxiv.org/abs/2606.11928)
 
-Place `HDP_CombinedInfo_WithStructures.csv` in `data/`. All derived feature files (`hdp_lobfeats_antibonding.csv`, `hdp_lobfeats_bonding_NoDOS.csv`, `MLIP_Ehullform_averaged.csv`) are included in `data/`.
+**NOMAD dataset:** https://nomad-lab.eu/prod/v1/gui/dataset/doi/10.17172/nomad.wb9y-b8j7
 
-Pre-computed MODNet featurization checkpoints (`modnet_featurized.pkl`, `modnet_selected.pkl`) are available at: [Zenodo DOI link]
+**Workflow analysis code:** https://github.com/Luccerboi/HDP_WorkFLow_Analysis
+
+Download `HDP_CombinedInfo_WithStructures.csv` from the NOMAD link above and place it in `data/`.
+All derived feature files (`hdp_lobfeats_antibonding.csv`, `hdp_lobfeats_bonding_NoDOS.csv`,
+`MLIP_Ehullform_averaged.csv`) are already included in `data/`.
+
+Pre-computed MODNet featurization checkpoints (`modnet_featurized.pkl`, `modnet_selected.pkl`)
+are large files not tracked by git. Download from: [Zenodo DOI — to be added]
 
 ---
 
@@ -119,6 +128,24 @@ Full SOP documents in `docs/`:
 
 ## References
 
-- De Breuck et al., *npj Computational Materials* **7**, 83 (2021) — MODNet: https://doi.org/10.1038/s41524-021-00552-2
-- Naik et al. (2024) — HDP dataset and LobsterPy descriptors
-- Cranmer (2023) — PySR: https://arxiv.org/abs/2305.01582
+**Dataset & bonding descriptors:**
+- L. Walterbos, A. McEwan, R. Shinde, J. George, L. Leppert, "Spin-Polarized Electronic Structure and Chemical Bonding Data for 2,500+ Halide Double Perovskites," *under review* (2026). [arXiv:2606.11928](https://arxiv.org/abs/2606.11928)
+- NOMAD dataset: https://nomad-lab.eu/prod/v1/gui/dataset/doi/10.17172/nomad.wb9y-b8j7
+- Workflow code: https://github.com/Luccerboi/HDP_WorkFLow_Analysis
+
+**MODNet:**
+- P.-P. De Breuck, G. Hautier, G.-M. Rignanese, "Materials property prediction for limited datasets enabled by feature selection and joint learning with MODNet," *npj Computational Materials* **7**, 83 (2021). https://doi.org/10.1038/s41524-021-00552-2
+
+**Symbolic regression:**
+- M. Cranmer, "Interpretable machine learning for science with PySR and SymbolicRegression.jl," *arXiv*:2305.01582 (2023). https://arxiv.org/abs/2305.01582
+
+**Featurization:**
+- L. Ward et al., "Matminer: An open source toolkit for materials data mining," *Computational Materials Science* **152**, 60–69 (2018). https://doi.org/10.1016/j.commatsci.2018.05.018
+
+**Bonding analysis:**
+- J. George et al., "Automated bonding analysis with crystal orbital Hamilton populations," *ChemPlusChem* **87**, e202200123 (2022). https://doi.org/10.1002/cplu.202200123 (LobsterPy)
+- S. Maintz et al., "LOBSTER: A tool to extract chemical bonding from plane-wave based DFT," *Journal of Computational Chemistry* **37**, 1030–1035 (2016). https://doi.org/10.1002/jcc.24300
+
+**Materials informatics:**
+- S. P. Ong et al., "Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis," *Computational Materials Science* **68**, 314–319 (2013). https://doi.org/10.1016/j.commatsci.2012.10.028
+- F. Pedregosa et al., "Scikit-learn: Machine learning in Python," *Journal of Machine Learning Research* **12**, 2825–2830 (2011).
