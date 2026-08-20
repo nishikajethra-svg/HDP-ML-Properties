@@ -28,24 +28,70 @@ Predicting band gap, formation energy ($E_\text{form}$), and energy above hull (
 
 ```
 HDP-ML-Properties/
-├── docs/                        # SOP documentation (PDF)
-│   ├── 00_project_overview.pdf
-│   ├── 01_featurization.pdf
-│   ├── 02_models.pdf
-│   ├── 03_symbolic_regression.pdf
-│   ├── 04_modnet_replication.pdf
-│   └── 05_results_summary.pdf
-├── data/                        # Feature CSVs (see data/README.md)
-├── shared/                      # Shared pipeline code
-│   ├── pipeline.py              # CorrelationFilter, data loading, nested CV
-│   ├── pysr_utils.py            # PySR feature strategies and utilities
-│   └── plotting.py              # Parity, feature importance, Pareto plots
-├── models/                      # GB and RF training scripts
-├── symbolic_regression/         # PySR scripts and equation CSVs
-├── modnet_replication/          # Standalone MODNet paper replication
-├── figures/                     # Output plots
-└── notebooks/
-    └── results_overview.ipynb   # Visual results browser
+├── README.md
+├── LICENSE
+├── .gitignore
+├── requirements_bonding.txt       # add_bonding environment
+├── requirements_modnet.txt        # start_modnet environment
+│
+├── data/                          # Feature CSVs (see data/README.md)
+│   ├── README.md
+│   ├── hdp_lobfeats_antibonding.csv
+│   ├── hdp_lobfeats_bonding_NoDOS.csv
+│   └── MLIP_Ehullform_averaged.csv
+│
+├── shared/                        # Shared pipeline code
+│   ├── pipeline.py                # CorrelationFilter, data loading, nested CV
+│   ├── pysr_utils.py              # PySR feature strategies and utilities
+│   └── plotting.py                # Parity, feature importance, Pareto plots
+│
+├── featurization/                 # Matminer featurization + NMI selection
+│   ├── featurize.py               # 2325 Matminer2023 features (~4-6 hours)
+│   └── feature_selection.py       # NMI selection → 300 features per target
+│
+├── models/                        # GB and RF training + analysis
+│   ├── rf_bandgap.py
+│   ├── gb_bandgap.py
+│   ├── gb_bandgap_filtered.py     # bandgap > 0.1 eV only
+│   ├── gb_eform.py
+│   ├── gb_ehull.py
+│   ├── gb_ehull_nodos.py          # Ehull without DOS band descriptors
+│   ├── analyze_bandgap.py
+│   ├── analyze_eform.py
+│   ├── analyze_ehull.py
+│   └── results/                   # result pkl files (not tracked)
+│
+├── symbolic_regression/           # PySR scripts and equation CSVs
+│   ├── pysr_bandgap.py            # normal / corrfilter / focused
+│   ├── pysr_eform.py
+│   ├── pysr_ehull.py
+│   ├── plot_pareto.py
+│   └── equations/                 # Pareto front CSVs (committed)
+│       ├── pysr_eform_normal_equations.csv
+│       ├── pysr_eform_corrfilter_equations.csv
+│       ├── pysr_eform_focused_equations.csv
+│       ├── pysr_ehull_normal_equations.csv
+│       ├── pysr_ehull_corrfilter_equations.csv
+│       └── pysr_ehull_focused_equations.csv
+│
+├── modnet_replication/            # Standalone MODNet paper replication
+│   ├── featurize.py
+│   ├── feature_selection.py
+│   ├── train_bandgap.py
+│   └── train_ehull.py             # fast mode: python train_ehull.py fast
+│
+├── notebooks/
+│   └── results_overview.ipynb     # Visual results browser (no re-running needed)
+│
+├── figures/                       # Output plots
+├── presentations/                 # PowerPoint updates
+└── docs/                          # SOP documentation PDFs
+    ├── 00_project_overview.pdf
+    ├── 01_featurization.pdf
+    ├── 02_models.pdf
+    ├── 03_symbolic_regression.pdf
+    ├── 04_modnet_replication.pdf
+    └── 05_results_summary.pdf
 ```
 
 ---
